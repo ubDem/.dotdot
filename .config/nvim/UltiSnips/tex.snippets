@@ -867,6 +867,15 @@ $0
 \end{document}
 endsnippet
 
+#TUFTE
+
+snippet tho "new thought"
+\newthought{${1:${VISUAL}}}
+}
+$0
+endsnippet
+	
+
 snippet tuftehandout "tuftehandout"
 \documentclass[nobib]{tufte-handout}
 
@@ -892,7 +901,13 @@ snippet tuftehandout "tuftehandout"
 % Boxes around texts
 \usepackage{tcolorbox}
 % Enumerate
-\usepackage{enumitem} 
+\usepackage{enumerate} 
+
+% call this one with wbox
+\newtcolorbox{whitebox}[2][]{standard jigsaw, opacityback=0, title={#2}, 
+colbacktitle=white!,
+coltitle=Black
+}
 
 \begin{document}
 \title{$1}
