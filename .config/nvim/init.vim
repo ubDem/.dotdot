@@ -79,6 +79,7 @@ endif
 Plug 'ajmwagar/vim-deus'
 Plug 'gruvbox-community/gruvbox'
 Plug 'dylanaraps/wal'
+Plug 'arcticicestudio/nord-vim'
 " Syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim'
 
@@ -179,6 +180,10 @@ let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 colorscheme wal
 set background=dark
 
+" NORD settings
+let g:nord_cursor_line_number_background = 1
+let g:nord_uniform_status_lines = 1
+let g:nord_uniform_diff_background = 1
 
 " -----------------------------------------------------------------------------
 " VimTex
