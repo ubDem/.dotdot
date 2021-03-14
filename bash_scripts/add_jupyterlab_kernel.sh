@@ -6,4 +6,4 @@ conda install -y ipykernel
 ipython kernel install --user --name=$1
 conda deactivate
 
-echo Kernel $1 has been added to the jupyter-lab
+echo Kernel $1 has been added to the jupyterlab kernels
