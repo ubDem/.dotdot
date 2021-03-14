@@ -65,15 +65,26 @@ Plug 'honza/vim-snippets'
 " Syntax check
 Plug 'dense-analysis/ale'
 
-" Stata Do-files
-Plug 'zizhongyan/vim-stata'
+" Paired brackets
+Plug 'jiangmiao/auto-pairs'
 
-" Shortcut recommendation
-"" if has('python3') && has('timers')
-""   Plug 'AlphaMycelium/pathfinder.vim'
-"" else
-""   echoerr 'pathfinder.vim is not supported on this Vim installation'
-"" endif
+" Comment lines
+Plug 'scrooloose/nerdcommenter'
+
+" Auto-format code
+Plug 'sbdchd/neoformat'
+
+" Jedi for python
+Plug 'davidhalter/jedi-vim'
+
+" Code checker
+Plug 'neomake/neomake'
+
+" Multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+
+" Fold
+Plug 'tmhedberg/SimpylFold'
 
 " RMarkdown
 " -----------------------------------------------------------------------------
@@ -328,35 +339,39 @@ let g:webdevicons_enable_airline_statusline = 1
 " whether or not to show the nerdtree brackets around flags
 "let g:webdevicons_conceal_nerdtree_brackets = 1
 
-
-
-
-
-
-
-
-
-"lua <<EOF
-"require'nvim-treesitter.configs'.setup {
-"  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-"  highlight = {
-"    enable = true,              -- false will disable the whole extension
-"    disable = { "c", "rust" },  -- list of language that will be disabled
-"  },
-"}
-"EOF
-"
-
-
-
-
-
-
 let g:md_pdf_viewer="Zathura"
 
 
+"-----------------------------------------------------------------------------
+" Jedi  
+"----------------------------------------------------------------------------
+
+" disable autocompletion, because we use deoplete for completion
+let g:jedi#completions_enabled = 0
+
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+
+"-----------------------------------------------------------------------------
+" NeoMake  
+"----------------------------------------------------------------------------
+
+let g:neomake_python_enabled_makers = ['pylint']
+call neomake#configure#automake('nrwi', 500)
+
+"-----------------------------------------------------------------------------
+" Highlightedyank  
+"----------------------------------------------------------------------------
+
+hi HighlightedyankRegion cterm=reverse gui=reverse
+" set highlight duration time to 1000 ms, i.e., 1 second
+let g:highlightedyank_highlight_duration = 1000
 
 
+"-----------------------------------------------------------------------------
+" Python Terminal  
+"----------------------------------------------------------------------------
 
 
-
+nnoremap <C-R> :sp <CR> :term python % <CR>
+nnoremap <C-W> :bd!<CR>
