@@ -86,6 +86,9 @@ Plug 'terryma/vim-multiple-cursors'
 " Fold
 Plug 'tmhedberg/SimpylFold'
 
+" Git
+Plug 'airblade/vim-gitgutter'
+
 " RMarkdown
 " -----------------------------------------------------------------------------
 Plug 'vim-pandoc/vim-rmarkdown'
